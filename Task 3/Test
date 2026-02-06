@@ -1,1 +1,67 @@
+CREATE DATABASE Task3;
+SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| Task3              |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
 
+---Un-Normalized
+ CREATE TABLE student (
+    -> StudentID INT,
+    -> StudentName VARCHAR (60),
+    -> Email VARCHAR (60),
+    -> ClubName VARCHAR (60),
+    -> ClubRoom VARCHAR (60),
+    -> ClubMentor VARCHAR (60),
+    -> JoinDate DATE
+    -> );
+
+DESCRIBE student;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| StudentID   | int         | YES  |     | NULL    |       |
+| StudentName | varchar(60) | YES  |     | NULL    |       |
+| Email       | varchar(60) | YES  |     | NULL    |       |
+| ClubName    | varchar(60) | YES  |     | NULL    |       |
+| ClubRoom    | varchar(60) | YES  |     | NULL    |       |
+| ClubMentor  | varchar(60) | YES  |     | NULL    |       |
+| JoinDate    | date        | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+
+INSERT INTO student 
+(StudentID, StudentName, Email, ClubName, ClubRoom, ClubMentor, JoinDate)
+VALUES 
+(1, 'Asha', 'asha@email.com', 'Music Club', 'R101', 'Mr. Raman', '2024-01-10'),
+(2, 'Bikash', 'bikash@email.com', 'Sports Club', 'R202', 'Ms. Sita', '2024-01-12'),
+(1, 'Asha', 'asha@email.com', 'Sports Club', 'R202', 'Ms. Sita', '2024-01-15'),
+(3, 'Nisha', 'nisha@email.com', 'Music Club', 'R101', 'Mr. Raman', '2024-01-20'),
+(4, 'Rohan', 'rohan@email.com', 'Drama Club', 'R303', 'Mr. Kiran', '2024-01-18'),
+(5, 'Suman', 'suman@email.com', 'Music Club', 'R101', 'Mr. Raman', '2024-01-22'),
+(2, 'Bikash', 'bikash@email.com', 'Drama Club', 'R303', 'Mr. Kiran', '2024-01-25'),
+(6, 'Pooja', 'pooja@email.com', 'Sports Club', 'R202', 'Ms. Sita', '2024-01-27'),
+(3, 'Nisha', 'nisha@email.com', 'Coding Club', 'Lab1', 'Mr. Anil', '2024-01-28'),
+(7, 'Aman', 'aman@email.com', 'Coding Club', 'Lab1', 'Mr. Anil', '2024-01-30');
+
+SELECT *FROM student;
++-----------+-------------+------------------+-------------+----------+------------+------------+
+| StudentID | StudentName | Email            | ClubName    | ClubRoom | ClubMentor | JoinDate   |
++-----------+-------------+------------------+-------------+----------+------------+------------+
+|         1 | Asha        | asha@email.com   | Music Club  | R101     | Mr. Raman  | 2024-01-10 |
+|         2 | Bikash      | bikash@email.com | Sports Club | R202     | Ms. Sita   | 2024-01-12 |
+|         1 | Asha        | asha@email.com   | Sports Club | R202     | Ms. Sita   | 2024-01-15 |
+|         3 | Nisha       | nisha@email.com  | Music Club  | R101     | Mr. Raman  | 2024-01-20 |
+|         4 | Rohan       | rohan@email.com  | Drama Club  | R303     | Mr. Kiran  | 2024-01-18 |
+|         5 | Suman       | suman@email.com  | Music Club  | R101     | Mr. Raman  | 2024-01-22 |
+|         2 | Bikash      | bikash@email.com | Drama Club  | R303     | Mr. Kiran  | 2024-01-25 |
+|         6 | Pooja       | pooja@email.com  | Sports Club | R202     | Ms. Sita   | 2024-01-27 |
+|         3 | Nisha       | nisha@email.com  | Coding Club | Lab1     | Mr. Anil   | 2024-01-28 |
+|         7 | Aman        | aman@email.com   | Coding Club | Lab1     | Mr. Anil   | 2024-01-30 |
++-----------+-------------+------------------+-------------+----------+------------+------------+
+
+--1NF
