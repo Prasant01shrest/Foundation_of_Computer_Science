@@ -10,29 +10,16 @@ SHOW DATABASES;
 | sys                |
 +--------------------+
 
----Un-Normalized / 1nf
+---Un-Normalized / 1NF
  CREATE TABLE student (
-    -> StudentID INT,
-    -> StudentName VARCHAR (60),
-    -> Email VARCHAR (60),
-    -> ClubName VARCHAR (60),
-    -> ClubRoom VARCHAR (60),
-    -> ClubMentor VARCHAR (60),
-    -> JoinDate DATE
-    -> );
-
-DESCRIBE student;
-+-------------+-------------+------+-----+---------+-------+
-| Field       | Type        | Null | Key | Default | Extra |
-+-------------+-------------+------+-----+---------+-------+
-| StudentID   | int         | YES  |     | NULL    |       |
-| StudentName | varchar(60) | YES  |     | NULL    |       |
-| Email       | varchar(60) | YES  |     | NULL    |       |
-| ClubName    | varchar(60) | YES  |     | NULL    |       |
-| ClubRoom    | varchar(60) | YES  |     | NULL    |       |
-| ClubMentor  | varchar(60) | YES  |     | NULL    |       |
-| JoinDate    | date        | YES  |     | NULL    |       |
-+-------------+-------------+------+-----+---------+-------+
+    StudentID INT,
+    StudentName VARCHAR (60),
+    Email VARCHAR (60),
+    ClubName VARCHAR (60),
+    ClubRoom VARCHAR (60),
+    ClubMentor VARCHAR (60),
+    JoinDate DATE
+    );
 
 INSERT INTO student 
 (StudentID, StudentName, Email, ClubName, ClubRoom, ClubMentor, JoinDate)
@@ -48,21 +35,6 @@ VALUES
 (3, 'Nisha', 'nisha@email.com', 'Coding Club', 'Lab1', 'Mr. Anil', '2024-01-28'),
 (7, 'Aman', 'aman@email.com', 'Coding Club', 'Lab1', 'Mr. Anil', '2024-01-30');
 
-SELECT *FROM student;
-+-----------+-------------+------------------+-------------+----------+------------+------------+
-| StudentID | StudentName | Email            | ClubName    | ClubRoom | ClubMentor | JoinDate   |
-+-----------+-------------+------------------+-------------+----------+------------+------------+
-|         1 | Asha        | asha@email.com   | Music Club  | R101     | Mr. Raman  | 2024-01-10 |
-|         2 | Bikash      | bikash@email.com | Sports Club | R202     | Ms. Sita   | 2024-01-12 |
-|         1 | Asha        | asha@email.com   | Sports Club | R202     | Ms. Sita   | 2024-01-15 |
-|         3 | Nisha       | nisha@email.com  | Music Club  | R101     | Mr. Raman  | 2024-01-20 |
-|         4 | Rohan       | rohan@email.com  | Drama Club  | R303     | Mr. Kiran  | 2024-01-18 |
-|         5 | Suman       | suman@email.com  | Music Club  | R101     | Mr. Raman  | 2024-01-22 |
-|         2 | Bikash      | bikash@email.com | Drama Club  | R303     | Mr. Kiran  | 2024-01-25 |
-|         6 | Pooja       | pooja@email.com  | Sports Club | R202     | Ms. Sita   | 2024-01-27 |
-|         3 | Nisha       | nisha@email.com  | Coding Club | Lab1     | Mr. Anil   | 2024-01-28 |
-|         7 | Aman        | aman@email.com   | Coding Club | Lab1     | Mr. Anil   | 2024-01-30 |
-+-----------+-------------+------------------+-------------+----------+------------+------------+
 --2NF
 
 -- Students Table
@@ -72,31 +44,12 @@ StudentName VARCHAR(100),
 Email VARCHAR(100) UNIQUE
 );
 
-DESCRIBE Students;
-+-------------+--------------+------+-----+---------+-------+
-| Field       | Type         | Null | Key | Default | Extra |
-+-------------+--------------+------+-----+---------+-------+
-| StudentID   | int          | NO   | PRI | NULL    |       |
-| StudentName | varchar(100) | YES  |     | NULL    |       |
-| Email       | varchar(100) | YES  | UNI | NULL    |       |
-+-------------+--------------+------+-----+---------+-------+
-
 -- Clubs Table
 CREATE TABLE Clubs (
 ClubName VARCHAR(100) PRIMARY KEY,
 ClubRoom VARCHAR(50),
 ClubMentor VARCHAR(100)
 );
-
- DESCRIBE Clubs;
-+------------+--------------+------+-----+---------+-------+
-| Field      | Type         | Null | Key | Default | Extra |
-+------------+--------------+------+-----+---------+-------+
-| ClubName   | varchar(100) | NO   | PRI | NULL    |       |
-| ClubRoom   | varchar(50)  | YES  |     | NULL    |       |
-| ClubMentor | varchar(100) | YES  |     | NULL    |       |
-+------------+--------------+------+-----+---------+-------+
-3 rows in set (0.00 sec)
 
 -- Memberships Table
 CREATE TABLE Memberships (
@@ -108,15 +61,6 @@ FOREIGN KEY (StudentID) REFERENCES Students(StudentID),
 FOREIGN KEY (ClubName) REFERENCES Clubs(ClubName)
 );
 
- DESCRIBE Memberships;
-+-----------+--------------+------+-----+---------+-------+
-| Field     | Type         | Null | Key | Default | Extra |
-+-----------+--------------+------+-----+---------+-------+
-| StudentID | int          | NO   | PRI | NULL    |       |
-| ClubName  | varchar(100) | NO   | PRI | NULL    |       |
-| JoinDate  | date         | YES  |     | NULL    |       |
-+-----------+--------------+------+-----+---------+-------+
-
 -- Insert Students
 INSERT INTO Students
 VALUES (1, 'Asha', 'asha@email.com'),
@@ -127,35 +71,12 @@ VALUES (1, 'Asha', 'asha@email.com'),
 (6, 'Pooja', 'pooja@email.com'),
 (7, 'Aman', 'aman@email.com');
 
-SELECT *FROM Students;
-+-----------+-------------+------------------+
-| StudentID | StudentName | Email            |
-+-----------+-------------+------------------+
-|         1 | Asha        | asha@email.com   |
-|         2 | Bikash      | bikash@email.com |
-|         3 | Nisha       | nisha@email.com  |
-|         4 | Rohan       | rohan@email.com  |
-|         5 | Suman       | suman@email.com  |
-|         6 | Pooja       | pooja@email.com  |
-|         7 | Aman        | aman@email.com   |
-+-----------+-------------+------------------+
-
 -- Insert Clubs
 INSERT INTO Clubs
 VALUES ('Music Club', 'R101', 'Mr. Raman'),
 ('Sports Club', 'R202', 'Ms. Sita'),
 ('Drama Club', 'R303', 'Mr. Kiran'),
 ('Coding Club', 'Lab1', 'Mr. Anil');
-
- SELECT *FROM Clubs;
-+-------------+----------+------------+
-| ClubName    | ClubRoom | ClubMentor |
-+-------------+----------+------------+
-| Coding Club | Lab1     | Mr. Anil   |
-| Drama Club  | R303     | Mr. Kiran  |
-| Music Club  | R101     | Mr. Raman  |
-| Sports Club | R202     | Ms. Sita   |
-+-------------+----------+------------+
 
 -- Insert Memberships
 INSERT INTO Memberships
@@ -169,22 +90,6 @@ VALUES (1, 'Music Club', '2024-01-10'),
 (6, 'Sports Club', '2024-01-27'),
 (3, 'Coding Club', '2024-01-28'),
 (7, 'Coding Club', '2024-01-30');
-
-SELECT *FROM Memberships;
-+-----------+-------------+------------+
-| StudentID | ClubName    | JoinDate   |
-+-----------+-------------+------------+
-|         1 | Music Club  | 2024-01-10 |
-|         1 | Sports Club | 2024-01-15 |
-|         2 | Drama Club  | 2024-01-25 |
-|         2 | Sports Club | 2024-01-12 |
-|         3 | Coding Club | 2024-01-28 |
-|         3 | Music Club  | 2024-01-20 |
-|         4 | Drama Club  | 2024-01-18 |
-|         5 | Music Club  | 2024-01-22 |
-|         6 | Sports Club | 2024-01-27 |
-|         7 | Coding Club | 2024-01-30 |
-+-----------+-------------+------------+
 
 SELECT 
 s.StudentID,
