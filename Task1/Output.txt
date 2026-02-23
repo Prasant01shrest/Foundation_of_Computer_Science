@@ -1,0 +1,21 @@
+--Base64 Output
+Enter text for Base64 encoding: hello
+Original: hello
+Base64 Encoded: aGVsbG8=
+Base64 Decoded: hello
+
+--ASCII Output
+Enter a text= hi
+Encoded ASCII values: [104, 105]
+Decoded text: hi
+
+--Hexadecimal Output
+Enter a text= hi
+Hex Encoded: 6869
+Decoded Text: hi
+
+--URL Encoding Output
+Enter text for URL encoding: hello :)
+Original: hello :)
+URL Encoded: hello%20%3A%29
+URL Decoded: hello :)
