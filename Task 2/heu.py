@@ -16,6 +16,3 @@ for s in students:
             seating.append(s)
 
 print("Heuristic seating:", seating)
-
-PS E:\Python Class> python heu.py
-Heuristic seating: ['A', 'D']
