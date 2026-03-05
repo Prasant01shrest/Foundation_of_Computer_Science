@@ -3,12 +3,12 @@ A practical demonstration on **Secure Data Exchange**, **Computational Complexit
 
 # Project Overview
 This repository is designed as a hands-on learning path through foundational computer science topics. It is divided into three major tasks:
-1. Data Encoding & Representation
-2. Algorithms & Problem Solving
+1. Secure Data Exchange 
+2. Computational Complexity Analysis
 3. Database Normalization & SQL
 Each task includes scripts, outputs, and documentation to reinforce theory with practical examples.
 
-# Projct Structure
+# Project Structure
 ```
 Foundation_of_Computer_Science/
 │
@@ -35,20 +35,54 @@ Foundation_of_Computer_Science/
 └── README.md              # Project documentation
 ```
 
-## Secure Data Exchange
-This section explores on the roles on encoding formats such as **Base 64**, **ASCII**, **Hexadecimal**, etc. on the transmission of data in modern communication. It also aims to teach the risk of unencrypted SMTP transmission through **Man-In-The-Attack(MITM)** and to practically teach learner how mail transmission works.
-
-#Installation
+# Installation
 Repository Cloning:
 ```
 git clone https://github.com/Prasant01shrest/Foundation_of_Computer_Science.git
 cd Foundation_of_Computer_Science
 ```
 
-# Learning Objectives
-- Apply theoretical computer science concepts in practical scenarios
-- Strengthen programming skills through structured exercises
-- Explore problem-solving approaches across algorithms, databases, and complexity theory
+# Secure Data Exchange
+This section explores on the roles on encoding formats such as **Base 64**, **ASCII**, **Hexadecimal**, etc. on the transmission of data in modern communication. It also aims to teach the risk of unencrypted SMTP transmission through **Man-In-The-Attack(MITM)** and to practically teach learner how mail transmission works.
+
+## Learning Outcomes
+- Understand how different encoding schemes work.
+- Recognize why encoding is essential for communication protocols.
+- Gain practical experience with Python’s encoding libraries.
+
+## Code Usage
+```
+python Task1/Base64.py
+python Task1/ASCII.py
+python Task1/Hexadecimal.py
+python Task1/url.py
+```
+
+# Computational Complexity Analysis
+This section explores the arithmetic approaches for solving computational problems such as N problems and NP problems with the help of Brute Force Method or Heuristic Method. This section includes python implementations of said methods and its sample output connecting with real-world cases.
+
+## Learning Outcomes
+- Compare brute-force vs heuristic approaches.
+- Understand trade-offs between accuracy and efficiency.
+- Learn how heuristics can reduce computational complexity in practice.
+
+## Code Usage
+```
+python Task2/brute.py
+python Task2/heu.py
+```
+
+# Database Normalization & SQL
+This final section focuses on normalizing a college club membership management relational database starting from its un-normalized state. This section contains SQL schemas fro 1NF, 2NF and 3NF conversion.
+
+## Learning Outcomes
+- Apply normalization principles to reduce redundancy and improve efficiency.
+- Understand differences between 1NF, 2NF, and 3NF.
+- Gain practical experience writing and executing SQL queries.
+
+##Code Usage
+SOURCE Task3/Outputs/Query.sql;
+SOURCE Task3/Outputs/operations.sql;
 
 # Acknowledgments
 - Inspired by foundational of computer science module teacher Rupak Rajbanshi
