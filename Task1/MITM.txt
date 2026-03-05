@@ -1,0 +1,41 @@
+--Server
+docker run -it --name mailserver --network host mailhog/mailhog
+
+--Running Client Container
+docker run -it --name client --network host ubuntu
+
+--Updating and Installing swaks on Client Container
+apt update
+apt install -y swaks
+
+--sending mail using swaks in client container
+swaks --to bob@example.com \
+  --from alice@example.com \
+  --server 127.0.0.1:1025 \
+  --header "Subject: MITM Test" \
+  --body "Hi Bob,
+  This is a plaintext email.
+  Regards,
+  Alice"
+
+--Running Attacker Client
+docker run -it --name attacker --network host ubuntu
+
+--Updating and installing -y tcpdump
+apt update
+apt install -y tcpdump
+
+--Starting tcpdump
+tcpdump -A -i any port 1025
+
+--Intercepted Mail
+To: bob@example.com
+From: alice@example.com
+Subject: MITM Test
+Message-Id: <20260223120723.000329@docker-desktop>
+X-Mailer: swaks v20240103.0 jetmore.org/john/code/swaks/
+
+Hi Bob,
+This is a plaintext email.
+Regards,
+Alice
