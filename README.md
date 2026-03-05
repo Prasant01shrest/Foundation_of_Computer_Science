@@ -80,9 +80,11 @@ This final section focuses on normalizing a college club membership management r
 - Understand differences between 1NF, 2NF, and 3NF.
 - Gain practical experience writing and executing SQL queries.
 
-##Code Usage
+## Code Usage
+```
 SOURCE Task3/Outputs/Query.sql;
 SOURCE Task3/Outputs/operations.sql;
+```
 
 # Acknowledgments
 - Inspired by foundational of computer science module teacher Rupak Rajbanshi
