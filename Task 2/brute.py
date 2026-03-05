@@ -25,8 +25,3 @@ for arrangement in itertools.permutations(students):
 
     if valid:
         print("Valid seating:", arrangement)
-PS E:\Python Class> python brute.py
-Valid seating: ('A', 'D', 'B', 'C')
-Valid seating: ('A', 'D', 'C', 'B')
-Valid seating: ('B', 'C', 'D', 'A')
-Valid seating: ('C', 'B', 'D', 'A')
