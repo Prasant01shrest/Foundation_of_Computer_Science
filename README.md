@@ -80,11 +80,20 @@ This final section focuses on normalizing a college club membership management r
 - Understand differences between 1NF, 2NF, and 3NF.
 - Gain practical experience writing and executing SQL queries.
 
-## Code Usage
+## Quick Start
+
+1.**Start MYSQL Docker Container**
 ```
-SOURCE Task3/Outputs/Query.sql;
-SOURCE Task3/Outputs/operations.sql;
+docker run --name Student_manage \
+  -e MYSQL_ROOT_PASSWORD=root \
+  -d -p 3306:3306 \
+  mysql:8.0
 ```
+
+2.***Wait for MYSQL to Initialize***
+
+3.***Execute the demo script***
+
 
 # Acknowledgments
 - Inspired by foundational of computer science module teacher Rupak Rajbanshi
