@@ -84,7 +84,7 @@ This final section focuses on normalizing a college club membership management r
 
 1.**Start MYSQL Docker Container**
 ```
-docker run --name Student_manage \
+docker run --name assignment \
   -e MYSQL_ROOT_PASSWORD=root \
   -d -p 3306:3306 \
   mysql:8.0
@@ -92,8 +92,11 @@ docker run --name Student_manage \
 
 2.***Wait for MYSQL to Initialize***
 
-3.***Execute the demo script***
-
+3.***Execute the demo scripts***
+```
+docker exec -i assignment mysql -uroot -proot123 task3db < "Task 3/Outputs/operations.sql"
+docker exec -i assignment mysql -uroot -proot123 task3db < "Task 3/Outputs/Query.sql"
+```
 
 # Acknowledgments
 - Inspired by foundational of computer science module teacher Rupak Rajbanshi
